@@ -1,17 +1,12 @@
-# app.py
-from flask import Flask, request, render_template
+from flask import Flask, render_template
+from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
+CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5000"}})
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
-@app.route('/send-text', methods=['POST'])
-def send_text():
-    text = request.form.get('text')
-    print(f"Received text from web UI: {text}")
-    return {"message": "Text received successfully"}
 
 if __name__ == "__main__":
     app.run(debug=True)

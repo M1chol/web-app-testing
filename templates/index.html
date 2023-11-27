@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,11 @@
     <title>Flask App</title>
 </head>
 <body>
-    <form action="/send-text" method="post">
-        <input type="text" name="text" placeholder="Type something...">
-        <button type="submit">Send</button>
+    <form id="textForm">
+        <input type="text" id="textInput" placeholder="Type something...">
+        <button type="button" onclick="sendText()">Send</button>
     </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
