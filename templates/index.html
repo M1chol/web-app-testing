@@ -10,7 +10,11 @@
         <input type="text" id="textInput" placeholder="Type something...">
         <button type="button" onclick="sendText()">Send</button>
     </form>
-
+    <div style="padding: 5px;">
+        Messages will apear bellow:
+    </div>
+    
+    <ul id="messageList"></ul>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

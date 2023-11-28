@@ -14,7 +14,15 @@ app_api.add_middleware(
     allow_headers=["*"],
 )
 
+messageList = []
+
 @app_api.post('/api/send-text')
 async def send_text_api(text: str = Form(...)):
     print(f"Received text from API: {text}")
+    messageList.append(text)
     return {"message": "Text received successfully"}
+
+@app_api.get('/api/get-messages')
+async def get_messages_api():
+    print("fetching messages")
+    return {"messageList": messageList}
